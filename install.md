@@ -12,3 +12,9 @@ ubuntu
 aptitude install redis-server  # apt-get install 也可以.
 ```
 
+
+
+
+
+## Mac
+
