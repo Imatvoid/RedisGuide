@@ -123,6 +123,14 @@ index= h & n-1.
 
 
 
+
+
+## 使用的hash算法  Murnurhash2
+
+MurmurHash 算法最初由 Austin Appleby 于 2008 年发明， 这种算法的优点在于， 即使输入的键是有规律的， 算法仍能给出一个很好的随机分布性， 并且算法的计算速度也非常快。
+
+MurmurHash 算法目前的最新版本为 MurmurHash3 ， 而 Redis 使用的是 MurmurHash2 ， 关于 MurmurHash 算法的更多信息可以参考该算法的主页： http://code.google.com/p/smhasher/ 。
+
 ## rehash
 
 1.给h[1]分配内存

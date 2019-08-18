@@ -1,9 +1,5 @@
 # Scan
 
-
-
-
-
 ## keys  pattern的缺点
 
 ```shell
