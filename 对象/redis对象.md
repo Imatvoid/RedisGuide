@@ -18,8 +18,6 @@ Redis并没有直接使用数据结构来实现键值对数据库.而是基于�
 
 Redis的对象带有访问时间记录信息,可以计算数据库键的空转时长,在开启了maxmemory后可以优先删除
 
-
-
 ## 类型与编码
 
 ```c
@@ -51,7 +49,7 @@ type属性记录了对象的类型.
 - 当我们称呼一个数据库键为“字符串键”时， 我们指的是“这个数据库键所对应的值为字符串对象”；
 - 当我们称呼一个键为“列表键”时， 我们指的是“这个数据库键所对应的值为列表对象”
 
-可以使用TYPE命令查看
+可以使用`TYPE`命令查看
 
 ```shell
 redis> ZADD price 8.5 apple 5.0 banana 6.0 cherry
@@ -79,21 +77,25 @@ zset
 
 每种类型的对象都至少使用了两种不同的编码， 下面列出了每种类型的对象可以使用的编码。
 
-| 类型           | 编码                        | 对象                                                 |
-| :------------- | :-------------------------- | :--------------------------------------------------- |
-| `REDIS_STRING` | `REDIS_ENCODING_INT`        | 使用整数值实现的字符串对象。                         |
-| `REDIS_STRING` | `REDIS_ENCODING_EMBSTR`     | 使用 `embstr` 编码的简单动态字符串实现的字符串对象。 |
-| `REDIS_STRING` | `REDIS_ENCODING_RAW`        | 使用简单动态字符串实现的字符串对象。                 |
-| `REDIS_LIST`   | `REDIS_ENCODING_ZIPLIST`    | 使用压缩列表实现的列表对象。                         |
-| `REDIS_LIST`   | `REDIS_ENCODING_LINKEDLIST` | 使用双端链表实现的列表对象。                         |
-| `REDIS_HASH`   | `REDIS_ENCODING_ZIPLIST`    | 使用压缩列表实现的哈希对象。                         |
-| `REDIS_HASH`   | `REDIS_ENCODING_HT`         | 使用字典实现的哈希对象。                             |
-| `REDIS_SET`    | `REDIS_ENCODING_INTSET`     | 使用整数集合实现的集合对象。                         |
-| `REDIS_SET`    | `REDIS_ENCODING_HT`         | 使用字典实现的集合对象。                             |
-| `REDIS_ZSET`   | `REDIS_ENCODING_ZIPLIST`    | 使用压缩列表实现的有序集合对象。                     |
-| `REDIS_ZSET`   | `REDIS_ENCODING_SKIPLIST`   | 使用跳跃表和字典实现的有序集合对象。                 |
+| 类型           | 编码                        | 对象                                                     |
+| :------------- | :-------------------------- | :------------------------------------------------------- |
+| `REDIS_STRING` | `REDIS_ENCODING_INT`        | 使用整数值实现的字符串对象。                             |
+| `REDIS_STRING` | `REDIS_ENCODING_EMBSTR`     | 使用 `embstr` 编码的简单动态字符串实现的字符串对象。     |
+| `REDIS_STRING` | `REDIS_ENCODING_RAW`        | 使用简单动态字符串实现的字符串对象。                     |
+|                |                             |                                                          |
+| `REDIS_LIST`   | `REDIS_ENCODING_ZIPLIST`    | 使用压缩列表实现的列表对象。                             |
+| `REDIS_LIST`   | `REDIS_ENCODING_LINKEDLIST` | 使用双端链表实现的列表对象。                             |
+|                |                             |                                                          |
+| `REDIS_HASH`   | `REDIS_ENCODING_ZIPLIST`    | 使用压缩列表实现的哈希对象。                             |
+| `REDIS_HASH`   | `REDIS_ENCODING_HT`         | 使用字典实现的哈希对象。                                 |
+|                |                             |                                                          |
+| `REDIS_SET`    | `REDIS_ENCODING_INTSET`     | 使用整数集合实现的集合对象。                             |
+| `REDIS_SET`    | `REDIS_ENCODING_HT`         | 使用字典实现的集合对象。                                 |
+|                |                             |                                                          |
+| `REDIS_ZSET`   | `REDIS_ENCODING_ZIPLIST`    | 使用压缩列表实现的有序集合对象。                         |
+| `REDIS_ZSET`   | `REDIS_ENCODING_SKIPLIST`   | 使用跳跃表和字典实现的有序集合对象。(字典是为了O(1)读取) |
 
-使用 OBJECT ENCODING 命令可以查看一个数据库键的值对象的编码
+使用 `OBJECT ENCODING` 命令可以查看一个数据库键的值对象的编码
 
 通过 `encoding` 属性来设定对象所使用的编码， 而不是为特定类型的对象关联一种固定的编码， 极大地提升了 Redis 的灵活性和效率， 因为 Redis 可以根据不同的使用场景来为一个对象设置不同的编码， 从而优化对象在某一场景下的效率。
 
