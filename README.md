@@ -4,7 +4,7 @@
 
 - [基础数据结构](基础数据结构)
   - [summary](基础数据结构/summary.md)
-  - [sds简单动态字符串][基础数据结构/sds简单动态字符串.md]
+  - [sds简单动态字符串](基础数据结构/sds简单动态字符串.md)
   - [linkedlist双端链表](基础数据结构/linkedlist双端链表.md)
   - [ziplist压缩列表](基础数据结构/ziplist压缩列表.md)
   - [quicklist快速链表](基础数据结构/quicklist快速链表.md)
@@ -27,7 +27,7 @@
     - [Stream消息队列](/对象/拓展/Stream消息队列.md)
     - [地理位置GeoHash](/对象/拓展/地理位置GeoHash.md)
 
-- [应用Application][Application]
+- [应用Application](Application)
 	- [普通缓存](Application/普通缓存.md)
 	- [分布式锁](Application/DistributedLock.md) 
 	- [布隆过滤器](Application/布隆过滤器--推送新闻,网址黑名单,垃圾邮件.md)
