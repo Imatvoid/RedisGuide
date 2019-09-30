@@ -74,7 +74,7 @@ redis> OBJECT ENCODING number
 "int"
 ```
 
-![1565885788630](assets/string (字符串对象)/1565885788630.png)
+![1565885788630](assets/string-字符串对象/1565885788630.png)
 
 
 
@@ -97,7 +97,7 @@ redis> OBJECT ENCODING story
 "raw"
 ```
 
-![1565885829880](assets/string (字符串对象)/1565885829880.png)
+![1565885829880](assets/string-字符串对象/1565885829880.png)
 
 
 
@@ -109,7 +109,7 @@ redis> OBJECT ENCODING story
 
 `embstr` 编码是专门用于保存短字符串的一种优化编码方式， 这种编码和 `raw` 编码一样， 都使用 `redisObject` 结构和 `sdshdr` 结构来表示字符串对象， 但 `raw` 编码会调用两次内存分配函数来分别创建 `redisObject` 结构和 `sdshdr` 结构， 而 `embstr` 编码则通过调用一次内存分配函数来分配一块连续的空间， 空间中依次包含 `redisObject` 和 `sdshdr` 两个结构
 
-![1565885882691](assets/string (字符串对象)/1565885882691.png)
+![1565885882691](assets/string-字符串对象/1565885882691.png)
 
 `embstr` 编码的字符串对象在执行命令时， 产生的效果和 `raw` 编码的字符串对象执行命令时产生的效果是相同的， 但使用 `embstr` 编码的字符串对象来保存短字符串值有以下好处：
 
@@ -127,7 +127,7 @@ redis> OBJECT ENCODING msg
 "embstr"
 ```
 
-![1565885928003](assets/string (字符串对象)/1565885928003.png)
+![1565885928003](assets/string-字符串对象/1565885928003.png)
 
 
 

@@ -28,11 +28,11 @@ redis> HSET profile career "Programmer"
 
 如果 `profile` 键的值对象使用的是 `ziplist` 编码， 那么这个值对象将会是
 
-![1565947759172](assets/hash (哈希对象) /1565947759172.png)
+![1565947759172](assets/hash-哈希对象/1565947759172.png)
 
 
 
-![1565947774206](assets/hash (哈希对象) /1565947774206.png)
+![1565947774206](assets/hash-哈希对象/1565947774206.png)
 
 
 
@@ -49,7 +49,7 @@ redis> HSET profile career "Programmer"
 
 
 
-![1565947847044](assets/hash (哈希对象) /1565947847044.png)
+![1565947847044](assets/hash-哈希对象/1565947847044.png)
 
 
 

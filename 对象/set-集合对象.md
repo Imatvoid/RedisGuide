@@ -15,7 +15,7 @@ redis> SADD numbers 1 3 5
 (integer) 3
 ```
 
-![1565948160272](assets/set (集合对象)/1565948160272.png)
+![1565948160272](assets/set-集合对象/1565948160272.png)
 
 ### hashtable
 
@@ -26,7 +26,7 @@ redis> SADD fruits "apple" "banana" "cherry"
 (integer) 3
 ```
 
-![1565948195667](assets/set (集合对象)/1565948195667.png)
+![1565948195667](assets/set-集合对象/1565948195667.png)
 
 ## 编码转换
 
